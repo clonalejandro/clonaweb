@@ -1,0 +1,28 @@
+{
+  "experiments": [
+    {
+      "name": "Redradix",
+      "date": "September 1, 2019",
+      "href": "https://redradix.com/",
+      "image": "https://i.imgur.com/Jw6SD2F.png",
+      "backgroundColor": "#6a8ee1",
+      "fontColor": "#fff"
+    },
+    {
+      "name": "HDT",
+      "date": "April 1, 2019",
+      "href": "https://hdt.es/",
+      "image": "https://i.imgur.com/OPReXSK.png",
+      "backgroundColor": "#ed5d29",
+      "fontColor": "#fff"
+    },
+    {
+      "name": "ImaWeb",
+      "date": "June 4, 2018",
+      "href": "https://imaweb.es/",
+      "image": "https://i.imgur.com/g5fkuFI.png",
+      "backgroundColor": "#65712b",
+      "fontColor": "#fff"
+    }
+  ]
+}
