@@ -10,13 +10,14 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.5",
+    "serve": "^11.3.2",
     "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "prod": "serve -s build",
+    "prod": "serve -s build -l 3001",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
