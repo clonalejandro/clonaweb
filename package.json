@@ -1,6 +1,7 @@
 {
   "name": "clonaweb",
   "version": "3.1.0",
+  "homepage": "https://clonalejandro.github.io",
   "private": true,
   "dependencies": {
     "malextrap-react": "^1.0.7-c",
