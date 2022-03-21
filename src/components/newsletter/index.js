@@ -22,7 +22,7 @@ const NewsLetter = ({ repos, setRepos }) => {
     fetch('https://api.github.com/users/clonalejandro/repos?sort="created"')
       .then(res => res.json())
       .then(setRepos)
-  }, [setRepos])
+  })
 
   return (
     <div className='container'>
