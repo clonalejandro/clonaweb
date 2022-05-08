@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import MalexCard from 'malextrap-react/lib/Card'
 import * as actions from '../../redux/actions'
 import usePosts from '../../hooks/usePosts'
-import MalexCard from 'malextrap-react/lib/Card'
 import Post from '../post'
 
 const Posts = styled.div`
@@ -19,7 +19,12 @@ const Posts = styled.div`
 
 const NewsLetter = ({ repos, setRepos }) => {
   useEffect(() => {
-    fetch('https://api.github.com/users/clonalejandro/repos?sort="created"')
+    fetch('https://api.github.com/users/clonalejandro/repos?sort="created"', {
+      mode: 'cors',
+      headers: {
+        Authorization: process.env.GITHUB_TOKEN
+      }
+    })
       .then(res => res.json())
       .then(setRepos)
   })
@@ -28,7 +33,7 @@ const NewsLetter = ({ repos, setRepos }) => {
     <div className='container'>
       <div className='columns'>
         <MalexCard
-          color='col-md-4'
+          color='col-md-4 desc-card animated bounceIn delay-2s'
           text={[
             <span className='icons-user'> About me</span>,
             [
@@ -41,7 +46,7 @@ const NewsLetter = ({ repos, setRepos }) => {
               'Although I\'m Spanish, this is an explanation about my low level in English.',
             ]
           ]}
-          image='url(https://i.imgur.com/n2VsnJb.jpg)'
+          image='url(https://i.imgur.com/yortBfc.jpg)'
           href='https://github.com/clonalejandro'
         />
         <Posts className='col-md-4'>

@@ -10,7 +10,7 @@ export default styled.header`
     max-width: 100%;
     max-height: 100%;
     height: 100%;
-    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
     position: fixed;
     z-index: -1;
     width: 100%
@@ -25,7 +25,7 @@ export default styled.header`
   }
 
   .title .headline {
-    color: #2188ff;
+    color: white;
     font-weight: 600
   }
 

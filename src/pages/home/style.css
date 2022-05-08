@@ -31,3 +31,14 @@ body:after {
   position: relative;
   min-height: 100%
 }
+
+.desc-card .filter {
+  background-color: rgba(0, 0, 0, .7)
+}
+
+
+/** FIX MALEXTRAP BUG **/
+
+.btn {
+  line-height: .5em!important;
+}

@@ -1,7 +1,8 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  repos: []
+  repos: [],
+  page: 0,
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         repos: action.repos
+      }
+    case 'SET_PAGE':
+      return {
+        ...state,
+        page: action.page
       }
     default:
       return state

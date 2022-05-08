@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import MalexButton from 'malextrap-react/lib/Button'
 import useExperiments from '../../hooks/useExperiments'
+import usePagination from '../../hooks/usePagination'
 import Logo from '../logo-lab'
 import Experiment from '../experiment'
+import * as actions from '../../redux/actions'
+import { experiments } from '../../config.json'
 
-const Experiments = styled.div`
+const experimentsPerPage = 6
+const paginatedExperiments = usePagination(experiments, experimentsPerPage)
+
+const ExperimentsContainer = styled.div`
   .experiments-title > .exp-title,
   .experiments-title > .exp-subtitle {
     text-align: center
@@ -21,8 +29,8 @@ const Experiments = styled.div`
   }
 `
 
-export default () => (
-  <Experiments className='container'>
+const Experiments = ({ page, setPage }) => (
+  <ExperimentsContainer className='container'>
     <div className='experiments-title'>
       <h3 className='exp-title'>
         <Logo width={32} height={32} /> Last experiments
@@ -31,17 +39,36 @@ export default () => (
     </div>
     <div className='columns'>
       {
-        useExperiments(e => 
-          <Experiment 
-            key={e.name}
-            name={e.name}
-            date={e.date}
-            href={e.href}
-            image={e.image}
-            backgroundColor={e.backgroundColor}
-            fontColor={e.fontColor} />
+        useExperiments(paginatedExperiments.filter((e, index) => page + 1 > index)
+          .reduce((acc, val) => acc.concat(val), []), e => 
+            <Experiment 
+              key={e.name}
+              name={e.name}
+              date={e.date}
+              href={e.href}
+              image={e.image}
+              backgroundColor={e.backgroundColor}
+              fontColor={e.fontColor} />
         )
       }
     </div>
-  </Experiments>
+    {
+      experiments.length > experimentsPerPage && <div>
+        <MalexButton text='More 🧪' animated color='grape' 
+          onClick={() => {
+            setPage(page + 1)
+          }} 
+        />
+      </div>
+    }
+  </ExperimentsContainer>
 )
+
+export default connect(
+  store => ({
+    page: store.page
+  }),
+  {
+    setPage: actions.setPage
+  }
+)(Experiments)

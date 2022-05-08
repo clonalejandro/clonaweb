@@ -47,6 +47,14 @@
       "image": "https://i.imgur.com/g5fkuFI.png",
       "backgroundColor": "#65712b",
       "fontColor": "#fff"
+    }, 
+    {
+      "name": "WhiteNetwork",
+      "date": "Feb 1, 2017",
+      "href": "https://whitenetwork.es/",
+      "image": "https://i.imgur.com/LLJNDr1.png",
+      "backgroundColor": "#2196F3",
+      "fontColor": "#fff"
     }
   ]
 }

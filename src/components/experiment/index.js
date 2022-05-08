@@ -40,7 +40,7 @@ const Experiment = styled.div`
 `
 
 export default props => (
-  <Experiment className='col-md-6 col-lg-4'>
+  <Experiment className='col-md-6 col-lg-4 animated pulse'>
     <Image className='experiment-img' href={props.href} {...props} />
     <ExpInfo className='experiment-info' {...props}>
       <a className='no-decoration' href={props.href}>

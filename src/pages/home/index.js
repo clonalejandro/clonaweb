@@ -27,7 +27,7 @@ export default () => {
       <div className='background'></div>
       <div className='bgfilter' id='particles'></div>
         <div className='title'>
-          <img alt='logo' src='https://avatars3.githubusercontent.com/u/20615143?v=3&s=460' />
+          <img alt='logo' src='https://i.imgur.com/Qkc5j9C.png' />
           <h1 className='headline'>clonalejandro</h1>
           <h2 className='subtitle'>FullStack Developer</h2>
           <MalexButton 
