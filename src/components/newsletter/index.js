@@ -19,15 +19,15 @@ const Posts = styled.div`
 
 const NewsLetter = ({ repos, setRepos }) => {
   useEffect(() => {
-    fetch('https://api.github.com/users/clonalejandro/repos?sort="created"', {
+    fetch('https://api.github.com/users/clonalejandro/repos?sort="created"'/*, {
       mode: 'cors',
       headers: {
-        Authorization: process.env.GITHUB_TOKEN
+        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
       }
-    })
+    }*/)
       .then(res => res.json())
       .then(setRepos)
-  })
+  }, [setRepos])
 
   return (
     <div className='container'>

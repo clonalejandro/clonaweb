@@ -53,11 +53,9 @@ const Experiments = ({ page, setPage }) => (
       }
     </div>
     {
-      experiments.length > experimentsPerPage && <div>
+      (experiments.length > experimentsPerPage && paginatedExperiments[page + 1]?.length) && <div>
         <MalexButton text='More 🧪' animated color='grape' 
-          onClick={() => {
-            setPage(page + 1)
-          }} 
+          onClick={() => setPage(page + 1)} 
         />
       </div>
     }
