@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
 const initialState = {
   repos: [],
@@ -7,19 +8,19 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type){
-    case 'SET_REPOS':
-      return {
-        ...state,
-        repos: action.repos
-      }
     case 'SET_PAGE':
       return {
         ...state,
         page: action.page
+      }
+    case 'SET_REPOS':
+      return {
+        ...state,
+        repos: action.repos,
       }
     default:
       return state
   }
 }
 
-export default createStore(reducer)
+export default createStore(reducer, applyMiddleware(thunk))

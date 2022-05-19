@@ -6,7 +6,7 @@ import useExperiments from '../../hooks/useExperiments'
 import usePagination from '../../hooks/usePagination'
 import Logo from '../logo-lab'
 import Experiment from '../experiment'
-import * as actions from '../../redux/actions'
+import { setPage } from '../../redux/actions/'
 import { experiments } from '../../config.json'
 
 const experimentsPerPage = 6
@@ -39,7 +39,7 @@ const Experiments = ({ page, setPage }) => (
     </div>
     <div className='columns'>
       {
-        useExperiments(paginatedExperiments.filter((e, index) => page + 1 > index)
+        useExperiments(paginatedExperiments.filter((_, index) => index <= page)
           .reduce((acc, val) => acc.concat(val), []), e => 
             <Experiment 
               key={e.name}
@@ -67,6 +67,6 @@ export default connect(
     page: store.page
   }),
   {
-    setPage: actions.setPage
+    setPage: setPage
   }
 )(Experiments)

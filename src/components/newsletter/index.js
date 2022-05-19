@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import MalexCard from 'malextrap-react/lib/Card'
-import * as actions from '../../redux/actions'
+import { loadRepos } from '../../redux/actions/'
 import usePosts from '../../hooks/usePosts'
 import Post from '../post'
 
@@ -17,17 +17,13 @@ const Posts = styled.div`
   }
 `
 
-const NewsLetter = ({ repos, setRepos }) => {
+const NewsLetter = () => {
+  const dispatch = useDispatch()
+  const { repos } = useSelector(state => state)
+
   useEffect(() => {
-    fetch('https://api.github.com/users/clonalejandro/repos?sort="created"'/*, {
-      mode: 'cors',
-      headers: {
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      }
-    }*/)
-      .then(res => res.json())
-      .then(setRepos)
-  }, [setRepos])
+    dispatch(loadRepos())
+  }, [dispatch])
 
   return (
     <div className='container'>
@@ -66,11 +62,4 @@ const NewsLetter = ({ repos, setRepos }) => {
   )
 }
 
-export default connect(
-  store => ({
-    repos: store.repos
-  }),
-  {
-    setRepos: actions.setRepos
-  }
-)(NewsLetter)
+export default NewsLetter
