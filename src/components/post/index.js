@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MalexLabel from 'malextrap-react/lib/Label'
 
-const Post = styled.div`
+const Div = styled.div`
     margin-bottom: 2%;
     font-size: 0.8em;
 
@@ -44,10 +44,10 @@ const Post = styled.div`
     }
 `
 
-export default props =>
+const Post = props =>
     props && (
-        <Post>
-            <img alt="avatar" className="avatar" src="https://avatars3.githubusercontent.com/u/20615143?v=3&s=460" />
+        <Div>
+            <img alt="avatar" className="avatar" src="https://avatars3.githubusercontent.com/u/20615143?v=3&s=460" loading="lazy" />
             <div className="content">
                 <a target="_blank" href={props.url} className="header no-decoration" rel="noopener noreferrer">
                     {props.name}
@@ -56,5 +56,7 @@ export default props =>
                 </a>
                 <div className={'description'}>{props.description}</div>
             </div>
-        </Post>
+        </Div>
     )
+
+export default Post

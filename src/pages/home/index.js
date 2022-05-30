@@ -28,7 +28,7 @@ export default () => {
             <div className="background"></div>
             <div className="bgfilter" id="particles"></div>
             <div className="title">
-                <img alt="logo" src="https://i.imgur.com/Qkc5j9C.png" />
+                <img alt="logo" src="https://i.imgur.com/Qkc5j9C.png" loading="lazy" />
                 <h1 className="headline">clonalejandro</h1>
                 <h2 className="subtitle">FullStack Developer</h2>
                 <MalexButton animated color="first-gradient" text="Laboratory" />

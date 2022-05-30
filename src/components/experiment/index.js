@@ -8,7 +8,7 @@ const ExpInfo = styled.div`
     background-color: ${props => props.backgroundColor};
     color: ${props => props.fontColor};
 `
-const ExpDiv = styled.div`
+const Div = styled.div`
     text-align: center;
     font-size: 0.8em;
     margin-bottom: 2em;
@@ -40,7 +40,7 @@ const ExpDiv = styled.div`
 `
 
 const Experiment = props => (
-    <ExpDiv className="col-md-6 col-lg-4 animated pulse">
+    <Div className="col-md-6 col-lg-4 animated pulse">
         <Image className="experiment-img" href={props.href} {...props} />
         <ExpInfo className="experiment-info" {...props}>
             <a className="no-decoration" href={props.href}>
@@ -50,7 +50,7 @@ const Experiment = props => (
                 {props.date}
             </time>
         </ExpInfo>
-    </ExpDiv>
+    </Div>
 )
 
 export default Experiment
