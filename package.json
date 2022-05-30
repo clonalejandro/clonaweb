@@ -4,6 +4,9 @@
   "homepage": "https://clonalejandro.io",
   "private": true,
   "dependencies": {
+    "eslint": "^8.16.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
     "malextrap-react": "^1.0.7-c",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -38,6 +41,12 @@
     ]
   },
   "devDependencies": {
-    "react-error-overlay": "6.0.9"
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "react-error-overlay": "6.0.9",
+    "standard": "^17.0.0"
   }
 }

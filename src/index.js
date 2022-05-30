@@ -5,11 +5,11 @@ import store from './redux/store'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-ReactDOM.render(  
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('wrapper')
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('wrapper'),
 )
 
 // If you want your app to work offline and load faster, you can change

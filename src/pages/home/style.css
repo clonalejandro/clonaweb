@@ -5,15 +5,19 @@
 
 /** WEB PAGE **/
 
-*, html, input[type=checkbox], input[type=radio] {
-  box-sizing: border-box
+*,
+html,
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box
 }
 
 .no-decoration {
-	text-decoration: none
+    text-decoration: none
 }
 
-body, html {
+body,
+html {
     height: 100%;
     margin: 0
 }
@@ -23,22 +27,22 @@ body {
 }
 
 body:after {
-	background-image: none
+    background-image: none
 }
 
 #wrapper {
-  overflow: hidden;
-  position: relative;
-  min-height: 100%
+    overflow: hidden;
+    position: relative;
+    min-height: 100%
 }
 
 .desc-card .filter {
-  background-color: rgba(0, 0, 0, .7)
+    background-color: rgba(0, 0, 0, .7)
 }
 
 
 /** FIX MALEXTRAP BUG **/
 
 .btn {
-  line-height: .5em!important;
+    line-height: .5em !important
 }
