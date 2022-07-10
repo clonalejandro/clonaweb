@@ -27,7 +27,7 @@ const NewsLetter = () => {
 
     return (
         <div className="container">
-            <div className="columns">
+            <div className="columns column-centered">
                 <MalexCard
                     color="col-md-4 desc-card animated bounceIn delay-2s"
                     text={[
