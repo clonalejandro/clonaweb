@@ -13,6 +13,10 @@ const experimentsPerPage = 6
 const paginatedExperiments = usePagination(experiments, experimentsPerPage)
 
 const ExperimentsContainer = styled.div`
+    .experiments-title {
+        margin-bottom: 10%;
+    }
+
     .experiments-title > .exp-title,
     .experiments-title > .exp-subtitle {
         text-align: center;
