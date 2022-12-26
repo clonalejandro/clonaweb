@@ -9,12 +9,11 @@ import Experiment from '../experiment'
 import { setPage } from '../../redux/actions/'
 import { experiments } from '../../config.json'
 
-const experimentsPerPage = 6
-const paginatedExperiments = usePagination(experiments, experimentsPerPage)
+const PAGE_SIZE = 6
 
 const ExperimentsContainer = styled.div`
     .experiments-title {
-        margin-bottom: 10%;
+        margin-bottom: 5%;
     }
 
     .experiments-title > .exp-title,
@@ -33,43 +32,37 @@ const ExperimentsContainer = styled.div`
     }
 `
 
-const Experiments = ({ page, setPage }) => (
-    <ExperimentsContainer className="container">
-        <div className="experiments-title">
-            <h3 className="exp-title">
-                <Logo width={32} height={32} /> Last experiments
-            </h3>
-            <p className="exp-subtitle">Quality is more important than quantity. — S. Jobs</p>
-        </div>
-        <div className="columns">
-            {useExperiments(
-                paginatedExperiments.filter((_, index) => index <= page).reduce((acc, val) => acc.concat(val), []),
-                e => (
-                    <Experiment
-                        key={e.name}
-                        name={e.name}
-                        date={e.date}
-                        href={e.href}
-                        image={e.image}
-                        backgroundColor={e.backgroundColor}
-                        fontColor={e.fontColor}
-                    />
-                ),
-            )}
-        </div>
-        {experiments.length > experimentsPerPage && paginatedExperiments[page + 1]?.length && (
-            <div>
-                <MalexButton text="More 🧪" animated color="grape" onClick={() => setPage(page + 1)} />
+const Experiments = ({ page, setPage }) => {
+    const mappedExperiments = useExperiments(
+        experiments,
+        e => <Experiment key={e.name} {...e} />,
+    )
+    const paginatedExperiments = usePagination(mappedExperiments, PAGE_SIZE)
+
+    return (
+        <ExperimentsContainer className="container">
+            <div className="experiments-title">
+                <h3 className="exp-title">
+                    <Logo width={32} height={32} /> Last experiments
+                </h3>
+                <p className="exp-subtitle">Quality is more important than quantity. — S. Jobs</p>
             </div>
-        )}
-    </ExperimentsContainer>
-)
+            <div className="columns">
+                {
+                    paginatedExperiments.filter((_, index) => index <= page)
+                        .reduce((acc, val) => acc.concat(val), [])
+                }
+            </div>
+            {mappedExperiments.length > PAGE_SIZE && paginatedExperiments[page + 1]?.length && (
+                <div>
+                    <MalexButton text="More 🧪" animated color="grape" onClick={() => setPage(page + 1)} />
+                </div>
+            )}
+        </ExperimentsContainer>
+    )
+}
 
 export default connect(
-    store => ({
-        page: store.page,
-    }),
-    {
-        setPage: setPage,
-    },
+    ({ page }) => ({ page }),
+    { setPage },
 )(Experiments)

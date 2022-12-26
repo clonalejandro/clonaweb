@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Image = styled.a`
-  background-image: url('${props => props.image}')
+  background-image: url('${props => props.image}');
 `
+
 const ExpInfo = styled.div`
     background-color: ${props => props.backgroundColor};
     color: ${props => props.fontColor};
 `
+
 const Div = styled.div`
     text-align: center;
     font-size: 0.8em;
@@ -39,15 +41,15 @@ const Div = styled.div`
     }
 `
 
-const Experiment = props => (
+const Experiment = ({ name, href, date, image, backgroundColor, fontColor }) => (
     <Div className="col-md-6 col-lg-4 animated pulse">
-        <Image className="experiment-img" href={props.href} {...props} />
-        <ExpInfo className="experiment-info" {...props}>
-            <a className="no-decoration" href={props.href}>
-                {props.name}
+        <Image className="experiment-img" href={href} image={image} />
+        <ExpInfo className="experiment-info" fontColor={fontColor} backgroundColor={backgroundColor}>
+            <a className="no-decoration" href={href}>
+                {name}
             </a>
-            <time className="experiment-date" dateTime={props.date}>
-                {props.date}
+            <time className="experiment-date" dateTime={date}>
+                {date}
             </time>
         </ExpInfo>
     </Div>

@@ -44,19 +44,18 @@ const Div = styled.div`
     }
 `
 
-const Post = props =>
-    props && (
-        <Div>
-            <img alt="avatar" className="avatar" src="https://avatars3.githubusercontent.com/u/20615143?v=3&s=460" loading="lazy" />
-            <div className="content">
-                <a target="_blank" href={props.url} className="header no-decoration" rel="noopener noreferrer">
-                    {props.name}
-                    <br />
-                    <MalexLabel color="pink" text="REPO" />
-                </a>
-                <div className={'description'}>{props.description}</div>
-            </div>
-        </Div>
-    )
+const Post = ({ name, description, url }) => (
+    <Div>
+        <img alt="avatar" className="avatar" src="https://avatars3.githubusercontent.com/u/20615143?v=3&s=460" loading="lazy" />
+        <div className="content">
+            <a target="_blank" href={url} className="header no-decoration" rel="noopener noreferrer">
+                {name}
+                <br />
+                <MalexLabel color="pink" text="REPO" />
+            </a>
+            <div className={'description'}>{description}</div>
+        </div>
+    </Div>
+)
 
 export default Post

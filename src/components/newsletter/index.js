@@ -17,9 +17,23 @@ const Posts = styled.div`
     }
 `
 
+const POST_LIMIT = 4
+
 const NewsLetter = () => {
     const dispatch = useDispatch()
     const { repos } = useSelector(state => state)
+    const posts = usePosts(
+        repos,
+        e => (
+            <Post
+                key={e.id}
+                url={e.html_url}
+                name={e.name.length > 16 ? e.name.substr(0, 16) + '..' : e.name}
+                description={e.description}
+            />
+        ),
+        POST_LIMIT,
+    )
 
     useEffect(() => {
         dispatch(setRepos())
@@ -52,18 +66,7 @@ const NewsLetter = () => {
                         <i className="icons-pencil" /> {'Latest Posts:'}
                     </h3>
                     <div className="posts-container">
-                        {usePosts(
-                            repos,
-                            e => (
-                                <Post
-                                    key={e.id}
-                                    url={e.html_url}
-                                    name={e.name.length > 16 ? e.name.substr(0, 16) + '..' : e.name}
-                                    description={e.description}
-                                />
-                            ),
-                            4,
-                        )}
+                        {posts}
                     </div>
                 </Posts>
             </div>
