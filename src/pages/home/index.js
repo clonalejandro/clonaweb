@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import MalexButton from 'malextrap-react/lib/Button'
 import Header from '../../components/header'
 import NewsLetter from '../../components/newsletter'
 import Experiments from '../../components/experiments'
+import config from '../../config.json'
 import 'malextrap-react/src/framework.css'
 import './style.css'
 
@@ -22,22 +23,33 @@ const Hr = styled.hr`
     background-color: #ddd;
 `
 
-export default () => {
-    return [
+function getJob(){
+    const jobs = config.jobTitle.split('||')
+    const [job] = jobs
+    const [jobWithoutTags] = job.replace(/\[|\]/g, '|')
+        .split('|')
+        .map(str => str.trim())
+    return jobWithoutTags
+}
+
+const Home = () => (
+    <Fragment>
         <Header key="home-header">
             <div className="background"></div>
             <div className="bgfilter" id="particles"></div>
             <div className="title">
                 <img alt="logo" src="https://i.imgur.com/Qkc5j9C.png" loading="lazy" />
                 <h1 className="headline">clonalejandro</h1>
-                <h2 className="subtitle">FullStack Developer</h2>
+                <h2 className="subtitle">{getJob()}</h2>
                 <MalexButton animated color="first-gradient" text="Laboratory" />
             </div>
-        </Header>,
+        </Header>
         <Main key="home-main">
             <NewsLetter />
             <Hr />
             <Experiments />
-        </Main>,
-    ]
-}
+        </Main>
+    </Fragment>
+)
+
+export default Home

@@ -10,8 +10,7 @@ export default styled.header`
     max-width: 100%;
     max-height: 100%;
     height: 100%;
-    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
-    position: fixed;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);    position: fixed;
     z-index: -1;
     width: 100%
   }

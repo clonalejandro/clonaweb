@@ -7,7 +7,8 @@ import usePagination from '../../hooks/usePagination'
 import Logo from '../logoLab'
 import Experiment from '../experiment'
 import { setPage } from '../../redux/actions/'
-import { experiments } from '../../config.json'
+import config from '../../config.json'
+import './style.scss'
 
 const PAGE_SIZE = 6
 
@@ -34,7 +35,7 @@ const ExperimentsContainer = styled.div`
 
 const Experiments = ({ page, setPage }) => {
     const mappedExperiments = useExperiments(
-        experiments,
+        config.experiments,
         e => <Experiment key={e.name} {...e} />,
     )
     const paginatedExperiments = usePagination(mappedExperiments, PAGE_SIZE)
@@ -43,7 +44,7 @@ const Experiments = ({ page, setPage }) => {
         <ExperimentsContainer className="container">
             <div className="experiments-title">
                 <h3 className="exp-title">
-                    <Logo width={32} height={32} /> Last experiments
+                    <Logo width={32} height={32} /> Latest experiences
                 </h3>
                 <p className="exp-subtitle">Quality is more important than quantity. — S. Jobs</p>
             </div>
@@ -55,7 +56,7 @@ const Experiments = ({ page, setPage }) => {
             </div>
             {mappedExperiments.length > PAGE_SIZE && paginatedExperiments[page + 1]?.length && (
                 <div>
-                    <MalexButton text="More 🧪" animated color="grape" onClick={() => setPage(page + 1)} />
+                    <MalexButton text="More 🧪" animated color="custom grape" onClick={() => setPage(page + 1)} />
                 </div>
             )}
         </ExperimentsContainer>
