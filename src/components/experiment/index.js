@@ -27,6 +27,10 @@ const Div = styled.div`
     & .experiment-info {
         padding: 1em;
         border-radius: 0 0 4px 4px;
+        -webkit-box-shadow: 8px 8px 24px -11px rgba(66, 68, 90, 1);
+        -moz-box-shadow: 8px 8px 24px -11px rgba(66, 68, 90, 1);
+        box-shadow: 8px 8px 24px -11px rgba(66, 68, 90, 1);
+
         z-index: 3;
     }
 

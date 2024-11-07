@@ -1,14 +1,30 @@
 {
-    "jobTitle": "Frontend Tech Lead [NodeJS | ReactJS | React Native | Kotlin] || CTO & Co-Founder",
+    "jobTitle": "Chief Technology Officer [NodeJS | ReactJS | React Native | Kotlin] || CTO & Co-Founder",
     "experiments": [
         {
+            "name": "Nuela",
+            "date": "April, 2024",
+            "href": "https://nuela.app",
+            "image": "https://i.imgur.com/zMftQXw.png",
+            "backgroundColor": "#635bff",
+            "fontColor": "#fff",
+            "now": true
+        },
+        {
+            "name": "Fisify",
+            "date": "July, 2023",
+            "href": "https://fisify.com",
+            "image": "https://i.imgur.com/zJTTiVu.jpeg",
+            "backgroundColor": "#120f20",
+            "fontColor": "#fff"
+        },
+        {
             "name": "Influencity",
-            "date": "October, 2022",
+            "date": "September, 2022",
             "href": "https://influencity.com",
             "image": "https://i.imgur.com/priwvyU.png",
             "backgroundColor": "#ff5983",
-            "fontColor": "#fff",
-            "now": true
+            "fontColor": "#fff"
         },
         {
             "name": "Mr.Milú",
@@ -20,12 +36,11 @@
         },
         {
             "name": "Packar",
-            "date": "June, 2022",
+            "date": "May, 2022",
             "href": "https://packar.es",
             "image": "https://i.imgur.com/6VPtd70.png",
             "backgroundColor": "#FE1252",
-            "fontColor": "#fff",
-            "now": true
+            "fontColor": "#fff"
         },
         {
             "name": "Geniox Mobile",
